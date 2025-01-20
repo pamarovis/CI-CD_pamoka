@@ -25,11 +25,11 @@ jobs:
           node-version: '18'
 
       # 3. Linting etapas
-      - name: Install dependencies
-        run: npm install 
-
       - name: Run ESLint
-        run: npx eslint index.js    
+        run: |
+            npm install
+            npm install eslint --save-dev
+            npx eslint index.js
 
       # 4. Paleidžia Hello World programą
       - name: Run Hello World
