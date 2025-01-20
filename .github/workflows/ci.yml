@@ -28,7 +28,7 @@ jobs:
       - name: Run ESLint
         run: |
             npm install
-            npm install eslint --save-dev
+            npm install -g eslint
             sudo npx eslint index.js
 
       # 4. Paleidžia Hello World programą
