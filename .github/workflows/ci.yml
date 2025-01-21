@@ -9,29 +9,27 @@ on:
       - main
 
 jobs:
-  # Jobo hello-world patikrinimas
   hello-world:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Atsiunčia actiona iš github
+      # 1. Check out the code from the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2. Įdiegia Node.js aplinką
+      # 2. Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      # 3. Linting etapas
+      # 3. Install dependencies and run ESLint
       - name: Run ESLint
         run: |
-            npm install
-            npm install -g eslint
-            sudo npx eslint index.js
+          npm install
+          npx eslint index.js
 
-      # 4. Paleidžia Hello World programą
+      # 4. Run Hello World program
       - name: Run Hello World
         run: |
           echo "Hello from CI/CD!"
