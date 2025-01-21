@@ -13,23 +13,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Check out the code from the repository
+      # 1. Check out the code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2. Set up Node.js environment
+      # 2. Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      # 3. Install dependencies and run ESLint
-      - name: Run ESLint
-        run: |
-          npm install
-          npx eslint index.js
+      # 3. Install dependencies
+      - name: Install Dependencies
+        run: npm install
 
-      # 4. Run Hello World program
+      # 4. Fix ESLint permissions (optional step if needed)
+      - name: Fix ESLint Permissions
+        run: chmod +x ./node_modules/.bin/eslint
+
+      # 5. Debug ESLint binary (optional for troubleshooting)
+      - name: Debug ESLint Binary
+        run: |
+          ls -l ./node_modules/.bin/
+          ls -l $(which eslint || echo "eslint not found")
+
+      # 6. Run ESLint
+      - name: Run ESLint
+        run: npx eslint index.js
+        shell: bash
+
+      # 7. Run Hello World
       - name: Run Hello World
         run: |
           echo "Hello from CI/CD!"
