@@ -1,17 +1,17 @@
 {
   "name": "hello-world",
   "version": "1.0.0",
+  "description": "A simple Hello World project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "eslint ."
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["hello", "world", "example"],
+  "author": "Skip",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
-    "@eslint/js": "^9.18.0",
-    "eslint": "^9.18.0",
+    "eslint": "^8.53.0",
     "globals": "^15.14.0"
   }
 }
